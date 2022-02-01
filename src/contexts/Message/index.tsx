@@ -7,6 +7,8 @@ import useAuthentication from '../../hooks/useAuthentication';
 type MessageContextData = {
   loadingMessages: boolean;
   messages: any[];
+  emoji: string;
+  setEmoji: any;
   handleSendMessage: (message: any) => Promise<void>;
 }
 
@@ -16,11 +18,13 @@ export default function MessageProvider({ children }) {
   const [loadingMessages, setLoadingMessages] = useState(true);
   const [messages, setMessages] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
+  const [emoji, setEmoji] = useState('');
   const { loadingAuthentication, authenticated, loadingProfile, profile } = useAuthentication();
 
   useEffect(() => {
     async function fetchMessages() {
-      const { data: users } = await supa.from('users').select('id, name, username, avatar_url');
+      const { data: users } = await supa.from('users')
+        .select('id, name, username, avatar_url');
       const { data: profileMessages } = await supa.from('messages')
         .select('id, content, user_id, created_at')
         .filter('user_id', 'eq', profile.id);
@@ -58,10 +62,9 @@ export default function MessageProvider({ children }) {
 
     if (!loadingAuthentication && authenticated && !loadingProfile && profile) {
       try {
-        setLoadingMessages(true)
         fetchMessages();
-      } catch (error) {
-        console.log('error', error);
+      } finally {
+        setLoadingMessages(false);
       }
     }
   }, [loadingAuthentication, authenticated, profile, loadingProfile]);
@@ -83,20 +86,16 @@ export default function MessageProvider({ children }) {
   }, [profile]);
 
   useEffect(() => {
-    try {
-      const sortedMessages = allMessages.sort((a, b) => {
-        if (a.created_at > b.created_at) {
-          return 1;
-        }
-        if (a.created_at < b.created_at) {
-          return -1;
-        }
-        return 0;
-      });
-      setMessages(sortedMessages);
-    } finally {
-      setLoadingMessages(false);
-    }
+    const sortedMessages = allMessages.sort((a, b) => {
+      if (a.created_at > b.created_at) {
+        return 1;
+      }
+      if (a.created_at < b.created_at) {
+        return -1;
+      }
+      return 0;
+    });
+    setMessages(sortedMessages);
   }, [allMessages]);
 
   async function handleSendMessage(message: any) {
@@ -114,7 +113,7 @@ export default function MessageProvider({ children }) {
   }
 
   return (
-    <MessageContext.Provider value={{ loadingMessages, messages, handleSendMessage }}>
+    <MessageContext.Provider value={{ loadingMessages, messages, emoji, setEmoji, handleSendMessage }}>
       { children }
     </MessageContext.Provider>
   )

@@ -15,10 +15,16 @@
     font-size: .875em;
     box-sizing: border-box;
     padding-right: 43px;
+    &:read-only {
+      color: #5f5f5f;
+      cursor: not-allowed;
+    }
   }
   div {
     position: absolute;
-    right: 9px;
-    bottom: 4.5px;
+    bottom: 18%;
+    right: 4.5px;
+    transform: translate3d(0, 18%, 0);
+    width: 0;
   }
 }

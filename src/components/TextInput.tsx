@@ -13,7 +13,7 @@ export default function TextInput({ type, loading, action, ...props }: Props) {
   const Element = action;
   return (
     <div className={styles.container}>
-      <input type={type} className={styles['text-input']} {...props } />
+      <input type={type} className={styles['text-input']} readOnly={loading} {...props } />
       { loading && <Loading /> }
       { !loading && action && <Element />}
     </div>

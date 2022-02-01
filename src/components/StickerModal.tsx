@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import useMessage from '../hooks/useMessage';
 
 import Sticker from './Sticker';
@@ -46,16 +44,14 @@ export default function StickerModal({ opened }) {
 
   return opened ? (
     <div className={styles.container}>
-      <div className={styles.list}>
-        {stickers.map((item) => {
-          const message = { content: `:sticker:${item}`, user_id: profile.id }
-          return (
-            <div key={item} className={styles.item} onClick={() => handleSendMessage(message)}>
-              <Sticker sticker_url={item} />
-            </div>
-          )
-        })}
-      </div>
+      {stickers.map((item) => {
+        const message = { content: `:sticker:${item}`, user_id: profile.id }
+        return (
+          <div key={item} className={styles.sticker} onClick={() => handleSendMessage(message)}>
+            <Sticker sticker_url={item} />
+          </div>
+        )
+      })}
     </div>
   ) : null;
 }

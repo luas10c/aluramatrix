@@ -15,6 +15,7 @@
     border: 2px solid #30743c;
     color: #30743c;
     border-radius: 4.5px;
+    transition: background-color .2s ease-in-out;
 
     display: flex;
     align-items: center;
@@ -27,6 +28,11 @@
       div {
         color: #4f565f;
       }
+    }
+
+    &:hover {
+      background-color: #30743c;
+      color: #ffffff;
     }
   }
 }

@@ -3,11 +3,12 @@
   background-color: rgba(1, 2, 16, .72);
   border: 2px solid rgba(33, 30, 78, .8);
   border-radius: 4.5px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 18px 9px;
-  form {
+  & > form {
     flex: 1;
     display: flex;
     gap: 9px;
@@ -42,7 +43,7 @@
     border: none;
   }
 
-  button:last-child {
+/*   button:last-child {
     background-color: rgba(49, 129, 53, 0.8);
     border-radius: 50%;
     display: flex;
@@ -51,5 +52,5 @@
     width: 36px;
     height: 36px;
     margin: 0 4.5px;
-  }
+  } */
 }

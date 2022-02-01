@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  bottom: 51px;
+  left: 43px;
+  width: 260px;
+  box-sizing: border-box;
+  border-radius: 4.5px;
+  background-color: rgba(1, 2, 16, .72);
+  border: 2px solid rgba(33, 30, 78, .8);
+
+  .footer {
+    background-color:rgba(1, 2, 16, 1);
+    ul {
+      display: flex;
+      gap: 9px;
+      justify-content: center;
+      width: 100%;
+      li {
+        button {
+          padding: 9px 0;
+          width: 24px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}

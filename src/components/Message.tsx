@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 
 import Avatar from './Avatar';
 import MessageActionModal from './MessageActionModal';
+import Sticker from './Sticker';
 
 import styles from '../styles/components/Message.module.scss';
 
@@ -41,7 +42,11 @@ export default function Message({ self, author, message }) {
         </div>
       </div>
       <div className={styles.content}>
-        {message.content}
+        {message.content.startsWith(':sticker:') ? (
+            <Sticker sticker_url={message.content.replace(/:sticker:/, '')} />
+        ) : 
+          message.content
+        }
       </div>
       <MessageActionModal opened={openedMessageActionModal} self={self} />
     </div>

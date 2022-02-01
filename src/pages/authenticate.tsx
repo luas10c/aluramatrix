@@ -23,10 +23,26 @@ export default function Home() {
     router.push('/');
   }
 
+  async function handleAuthentication() {
+    await handleUsernameSearch(username)
+    setUsername('');
+  }
+
+  function handleOnChange(event) {
+    setUsername(event.target.value.toLowerCase())
+  }
+
+  async function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+      await handleUsernameSearch(username)
+      setUsername('');
+    }
+  }
+
   return (
     <div className={styles.container}>
       {loadingAuthentication || loadingProfile && <Loading />}
-      { !loadingAuthentication && !loadingProfile && !authenticated && (
+      { !authenticated && (
         <>
           <Head>
             <title>Login</title>
@@ -42,10 +58,8 @@ export default function Home() {
                 <TextInput
                   type="text"
                   name="username"
-                  onChange={
-                    (event) => 
-                      setUsername(event.target.value.toLowerCase())
-                  }
+                  onChange={handleOnChange}
+                  onKeyDown={handleKeyDown}
                   placeholder="exemple: luas10c"
                   autoComplete="off"
                   value={username}
@@ -54,7 +68,7 @@ export default function Home() {
                     <button 
                       type="button"
                       className={styles.button}
-                      onClick={() => handleUsernameSearch(username)}
+                      onClick={handleAuthentication}
                     >
                       <RiSearchLine color="#FFFFFF" size={18} />
                     </button>
