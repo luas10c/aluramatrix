@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  .tip {
+    font-size: .775em;
+    margin-bottom: 9px;
+    line-height: 18px;
+    color: #615b7e;
+    text-align: left;
+    width: 100%;
+    font-weight: 700;
+    text-transform: lowercase;
+    .label {
+      text-transform: uppercase;
+      font-size: 1.2em;
+      display: block;
+      color: #30743c;
+    }
+  }
+}

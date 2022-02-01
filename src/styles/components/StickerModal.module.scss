@@ -1,0 +1,37 @@
+.container {
+  background-color: rgba(0,0,0,.1);
+  border: 2px solid rgba(155, 155, 155, .2);
+  border-radius: 4.5px;
+  padding: 9px;
+  width: 300px;
+  height: 100px;
+  box-sizing: border-box;
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    overflow-y: auto;
+    max-height: 100%;
+    .item {
+      flex: 0 0 calc(33.3% - 9px);
+      cursor: pointer;
+      padding: 8px;
+      box-sizing: border-box;
+      background-color: rgba(0,0,0,.5);
+      border: 1px solid rgba(155, 155, 155, .2);
+      border-radius: 30px;
+      .sticker {
+        object-fit: contain!important;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 9px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(155, 155, 155, .4);
+      border-radius: 9px;
+    }
+  }
+}

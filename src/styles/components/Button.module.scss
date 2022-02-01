@@ -1,0 +1,32 @@
+.container {
+  .btn {
+    position: relative;
+    box-sizing: border-box;
+    width: 180px;
+    height: 38px;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: .775em;
+    text-transform: uppercase;
+    margin-top: 18px;
+    padding: 0;
+    border: 2px solid #30743c;
+    color: #30743c;
+    border-radius: 4.5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:disabled {
+      background-color: transparent;
+      border: 2px solid #323942;
+      cursor: not-allowed;
+      div {
+        color: #4f565f;
+      }
+    }
+  }
+}

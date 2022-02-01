@@ -1,0 +1,31 @@
+.container {
+  background-color: rgba(33, 30, 78, 1);
+  padding: 4.5px 18px;
+  border-radius: 4.5px;
+  position: absolute;
+  top: 27px;
+  right: 36px;
+  z-index: 99999;
+  ul {
+    li {
+      padding: 0 9px;
+      button {
+        background-color: transparent;
+        box-sizing: border-box;
+        border: none;
+        padding: 9px 0;
+        color: #FFFFFF;
+
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 9px;
+        }
+      }
+      &:nth-child(1n+2) {
+        border-top: 1px solid #544a7a;
+      }
+    }
+  }
+}

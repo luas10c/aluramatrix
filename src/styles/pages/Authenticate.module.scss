@@ -1,0 +1,133 @@
+.container {
+  background-color: rgba(1, 2, 16, .72);
+  border: 2px solid #30743c;
+  border-radius: 4.5px;
+  margin: 0 18px;
+  max-width: 100%;
+  width: 460px;
+  min-height: 280px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .welcome {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 36px;
+
+    .greetings {
+      h2, p {
+        text-align: center;
+      }
+      h2 {
+        font-size: 2em;
+        font-weight: 700;
+        padding-bottom: 4.5px;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+
+    .authenticate {
+      margin-top: 43px;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .authenticate-info {
+        font-size: .875em;
+        margin-bottom: 9px;
+        line-height: 18px;
+        color: #615b7e;
+        text-align: left;
+        width: 100%;
+        span {
+          font-weight: 700;
+          font-size: .875em;
+          text-transform: uppercase;
+          display: block;
+          color: #30743c;
+        }
+      }
+      .button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        position: absolute;
+        box-sizing: border-box;
+        line-height: 0;
+        top: 50%;
+        right: 4.5px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .profile {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .headline {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      .avatar_wrapper {
+        width: 96px;
+        height: 96px;
+        background-color: transparent;
+        border: 3px solid #2d2a3b;
+        border-radius: 50%;
+        margin-top: 9px;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .avatar {
+          width: 100%;
+          border-radius: 50%;
+        }
+        &.active {
+          border-color: #30743c;
+        }
+      }
+      h3 {
+        text-align: center;
+        font-weight: 700;
+      }
+
+      ul {
+        display: flex;
+        gap: 4.5px;
+        flex-direction: column;
+        li {
+          font-size: .975em;
+          text-align: center;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    & > div > p {
+      text-align: center;
+      margin-top: 18px;
+    }
+  }
+
+  .avatar {
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  
+}
